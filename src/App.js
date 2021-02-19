@@ -1,14 +1,21 @@
 import Weather from "./Weather";
 import "./App.css";
+import SearchCity from "./SearchCity";
+import CityDate from "./CityDate";
 
-function App() {
+import "bootstrap/dist/css/bootstrap.css";
+
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Weather city="London" />
-      </header>
+      <div className="container">
+        <div className="weather-app">
+          <title>Wicked Weather App</title>
+          <SearchCity />
+          <CityDate defaultCity="London" defaultCountry="GB" />
+          <Weather />
+        </div>
+      </div>
     </div>
   );
 }
-
-export default App;
