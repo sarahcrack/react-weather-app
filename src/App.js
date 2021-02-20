@@ -2,6 +2,7 @@ import Weather from "./Weather";
 import "./App.css";
 import SearchCity from "./SearchCity";
 import CityDate from "./CityDate";
+import Forecast from "./Forecast";
 
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -14,6 +15,7 @@ export default function App() {
           <SearchCity />
           <CityDate defaultCity="London" defaultCountry="GB" />
           <Weather />
+          <Forecast />
         </div>
       </div>
     </div>
