@@ -1,0 +1,10 @@
+.sarah {
+  font-family: monospace;
+  text-align: center;
+  font-size: 15px;
+  color: gray;
+}
+
+#open-source-link {
+  text-decoration: underline;
+}
