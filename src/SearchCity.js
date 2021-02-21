@@ -33,7 +33,7 @@ export default function SearchCity() {
               className="btn btn-info shadow"
               id="currentLocationBtn"
             >
-              {" 📍 "}
+              {" "}
               <i className="fas fa-map-marker-alt"></i>
             </button>
           </div>
