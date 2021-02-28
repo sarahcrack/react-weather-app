@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
+import Loader from "react-loader-spinner";
+import FomattedDate from "./FormattedDate";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -14,18 +16,27 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       description: response.data.weather[0].description,
       city: response.data.name,
+      country: response.data.sys.country,
       sunrise: "07:15",
       sunset: "17:00",
-      feelsLike: 8,
+      feelsLike: response.data.main.feels_like,
       pack:
         "Don't forget to pack your jacket, sunglasses and umbrella just in case! 👍🏼",
       imgUrl: "https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png",
+      date: new Date(response.data.dt * 1000),
     });
   }
 
   if (weatherData.ready) {
     return (
       <div className="Weather">
+        <h1 className="city">
+          {weatherData.city}, {weatherData.country}
+        </h1>
+        <h4 className="data">
+          <FomattedDate date={weatherData.date} />
+        </h4>
+
         <div className="row">
           <div className="col-sm-6">
             <img
@@ -34,9 +45,7 @@ export default function Weather(props) {
               alt="weather-image"
             />
 
-            <p className="weather-description" id="description">
-              {weatherData.description}
-            </p>
+            <p className="weather-description">{weatherData.description}</p>
             <p className="pack" id="what-to-pack">
               {" "}
               {weatherData.pack}
@@ -53,6 +62,7 @@ export default function Weather(props) {
                   {Math.round(weatherData.temperature)}
                 </span>
                 <a href="/" id="units-celsius" className="active">
+                  {" "}
                   °C
                 </a>
                 <span id="units-line">|</span>
@@ -63,7 +73,7 @@ export default function Weather(props) {
               <li>
                 Feels like:{" "}
                 <span className="feels-like" id="feels-like">
-                  {weatherData.feelsLike}
+                  {Math.round(weatherData.feelsLike)}
                 </span>
                 °C
               </li>
@@ -92,6 +102,6 @@ export default function Weather(props) {
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=${units}`;
     axios.get(apiUrl).then(displayWeather);
 
-    return "Loading...";
+    return <Loader type="Hearts" color="#00BFFF" height={80} width={80} />;
   }
 }

@@ -1,3 +1,33 @@
+.Weather h1 {
+  font-weight: bolder;
+  line-height: 1.5;
+  margin-top: 8px;
+  margin-bottom: 0;
+  color: rgb(235, 214, 150);
+  text-align: left;
+}
+
+h4 {
+  color: rgb(235, 214, 150);
+  text-align: left;
+}
+
+.myLocation {
+  font-size: 30px;
+}
+
+#todays-date {
+  margin-bottom: 0;
+}
+
+#current-time {
+  margin-bottom: 20px;
+}
+
+#country {
+  color: rgb(235, 214, 150);
+}
+
 .Weather ul {
   margin: 0 0 20px 0;
   padding: 0;
@@ -19,7 +49,7 @@
   text-align: left;
 }
 
-.weather-description::first-letter {
+.weather-description {
   text-transform: capitalize;
 }
 
