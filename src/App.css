@@ -3,7 +3,7 @@
   text-align: center;
 }
 
-.weather-app {
+.App .weather-app {
   background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
   margin: 0 auto;
   margin-top: 20px;

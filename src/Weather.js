@@ -16,10 +16,10 @@ export default function Weather() {
   };
 
   return (
-    <div classNameName="Weather">
+    <div className="Weather">
       <div className="row">
         <div className="col-sm-6">
-          <img src={weatherData.imgUrl} id="weather-icon" alt="" />
+          <img src={weatherData.imgUrl} id="weather-icon" alt="weather-image" />
 
           <p className="weather-description" id="description">
             {weatherData.description}

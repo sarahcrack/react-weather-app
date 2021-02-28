@@ -14,16 +14,20 @@ export default function SearchCity() {
             <div className="form-group form-inline">
               <input
                 type="search"
-                className="form-control shadow-sm"
+                className="form-control shadow-sm w-100"
                 id="city-input"
                 placeholder="City"
-                autofocus="on"
+                autoFocus="on"
                 autocomplete="off"
               />
             </div>
           </div>
           <div className="col-2">
-            <button type="submit" className="btn btn-success shadow" id="goBtn">
+            <button
+              type="submit"
+              className="btn btn-success shadow w-100"
+              id="goBtn"
+            >
               Go!
             </button>
           </div>

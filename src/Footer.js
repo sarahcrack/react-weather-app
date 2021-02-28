@@ -11,7 +11,11 @@ export default function Footer() {
       >
         Open-source code
       </a>{" "}
-      by Sarah Crack
+      by
+      <a href="https://www.linkedin.com/in/sarah-crack-b2209195/">
+        {" "}
+        Sarah Crack
+      </a>
     </p>
   );
 }
