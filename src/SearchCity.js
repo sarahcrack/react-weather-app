@@ -18,7 +18,7 @@ export default function SearchCity() {
                 id="city-input"
                 placeholder="City"
                 autoFocus="on"
-                autocomplete="off"
+                autoComplete="off"
               />
             </div>
           </div>
