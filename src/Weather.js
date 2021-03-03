@@ -3,9 +3,11 @@ import axios from "axios";
 import "./Weather.css";
 import WeatherInfo from "./WeatherInfo";
 import Loader from "react-loader-spinner";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
 
   function displayWeather(response) {
     console.log(response.data);
@@ -27,13 +29,29 @@ export default function Weather(props) {
     });
   }
 
+  function search() {
+    const apiKey = "fde153f3844b17e39f35c5a4dda52b52";
+    let units = "metric";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+    axios.get(apiUrl).then(displayWeather);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
         <div className="card-body">
-          <form id="search-city-form">
+          <form className="search-city-form" onSubmit={handleSubmit}>
             <div className="row">
-              <div className="col-3" id="takeMeTo">
+              <div className="col-3">
                 <label for="takeMeTo">Take me to:</label>
               </div>
               <div className="col-5">
@@ -45,6 +63,7 @@ export default function Weather(props) {
                     placeholder="City"
                     autoFocus="on"
                     autoComplete="off"
+                    onChange={handleCityChange}
                   />
                 </div>
               </div>
@@ -74,10 +93,7 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    const apiKey = "fde153f3844b17e39f35c5a4dda52b52";
-    let units = "metric";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=${units}`;
-    axios.get(apiUrl).then(displayWeather);
+    search();
 
     return <Loader type="Hearts" color="#00BFFF" height={80} width={80} />;
   }
