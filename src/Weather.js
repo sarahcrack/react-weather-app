@@ -24,7 +24,7 @@ export default function Weather(props) {
       feelsLike: response.data.main.feels_like,
       pack:
         "Don't forget to pack your jacket, sunglasses and umbrella just in case! 👍🏼",
-      imgUrl: "https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png",
+      imgUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       date: new Date(response.data.dt * 1000),
     });
   }
