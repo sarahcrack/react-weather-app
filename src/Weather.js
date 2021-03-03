@@ -53,7 +53,9 @@ export default function Weather(props) {
           <form className="search-city-form" onSubmit={handleSubmit}>
             <div className="row">
               <div className="col-3">
-                <label for="takeMeTo">Take me to:</label>
+                <label for="takeMeTo" className="takeMeTo">
+                  Take me to:
+                </label>
               </div>
               <div className="col-5">
                 <div className="form-group form-inline">

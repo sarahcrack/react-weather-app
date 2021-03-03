@@ -4,12 +4,13 @@
   color: rgb(215, 215, 215);
 }
 
-#takeMeTo {
+.Weather .takeMeTo {
   font-size: 19px;
 }
 
 .Weather canvas {
   height: 70px;
+  margin-bottom: 10px;
 }
 
 .WeatherInfo h1 {
