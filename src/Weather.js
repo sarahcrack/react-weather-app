@@ -25,6 +25,7 @@ export default function Weather(props) {
       pack:
         "Don't forget to pack your jacket, sunglasses and umbrella just in case! 👍🏼",
       imgUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: response.data.weather[0].icon,
       date: new Date(response.data.dt * 1000),
     });
   }
