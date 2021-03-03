@@ -1,6 +1,5 @@
 import Weather from "./Weather";
 import "./App.css";
-import SearchCity from "./SearchCity";
 
 import Forecast from "./Forecast";
 import Footer from "./Footer";
@@ -13,7 +12,7 @@ export default function App() {
       <div className="container">
         <div className="weather-app">
           <title>Wicked Weather App</title>
-          <SearchCity />
+
           <Weather defaultCity="London" defaultCountry="GB" />
           <Forecast />
         </div>

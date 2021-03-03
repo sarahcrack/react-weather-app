@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
+import WeatherInfo from "./WeatherInfo";
 import Loader from "react-loader-spinner";
-import FomattedDate from "./FormattedDate";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -30,70 +30,47 @@ export default function Weather(props) {
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <h1 className="city">
-          {weatherData.city}, {weatherData.country}
-        </h1>
-        <h4 className="data">
-          <FomattedDate date={weatherData.date} />
-        </h4>
-
-        <div className="row">
-          <div className="col-sm-6">
-            <img
-              src={weatherData.imgUrl}
-              id="weather-icon"
-              alt="weather-image"
-            />
-
-            <p className="weather-description">{weatherData.description}</p>
-            <p className="pack" id="what-to-pack">
-              {" "}
-              {weatherData.pack}
-            </p>
-          </div>
-          <div className="col-sm-6">
-            <ul>
-              <li>
-                <span id="sunrise"></span>🌅 {weatherData.sunrise}{" "}
-                <span id="sunset">{weatherData.sunset}</span>
-              </li>
-              <li className="weather-temperature">
-                <span className="temperature" id="current-temperature">
-                  {Math.round(weatherData.temperature)}
-                </span>
-                <a href="/" id="units-celsius" className="active">
+        <div className="card-body">
+          <form id="search-city-form">
+            <div className="row">
+              <div className="col-3" id="takeMeTo">
+                <label for="takeMeTo">Take me to:</label>
+              </div>
+              <div className="col-5">
+                <div className="form-group form-inline">
+                  <input
+                    type="search"
+                    className="form-control shadow-sm w-100"
+                    id="city-input"
+                    placeholder="City"
+                    autoFocus="on"
+                    autoComplete="off"
+                  />
+                </div>
+              </div>
+              <div className="col-2">
+                <button
+                  type="submit"
+                  className="btn btn-success shadow w-100"
+                  id="goBtn"
+                >
+                  Go!
+                </button>
+              </div>
+              <div className="col-2">
+                <button
+                  type="submit"
+                  className="btn btn-info shadow"
+                  id="currentLocationBtn"
+                >
                   {" "}
-                  °C
-                </a>
-                <span id="units-line">|</span>
-                <a href="/" id="units-fahrenheit">
-                  °F
-                </a>
-              </li>
-              <li>
-                Feels like:{" "}
-                <span className="feels-like" id="feels-like">
-                  {Math.round(weatherData.feelsLike)}
-                </span>
-                °C
-              </li>
-              <li>
-                Humidity:{" "}
-                <span className="humidity" id="humidity">
-                  {weatherData.humidity}
-                </span>
-                %
-              </li>
-              <li>
-                Wind Speed:{" "}
-                <span className="wind-speed" id="wind-speed">
-                  {Math.round(weatherData.windSpeed)}
-                </span>{" "}
-                mph
-              </li>
-            </ul>
-          </div>
+                  <i className="fas fa-map-marker-alt"></i>
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
+        <WeatherInfo data={weatherData} />;
       </div>
     );
   } else {
