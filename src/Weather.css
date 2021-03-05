@@ -85,8 +85,8 @@ h4 {
   font-weight: bold;
 }
 
-#current-temperature {
-  font-size: 105px;
+.temperature {
+  font-size: 100px;
   text-align: right;
   font-weight: bold;
 }
