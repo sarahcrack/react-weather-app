@@ -1,30 +1,8 @@
-#forecast {
-  text-align: center;
+.Forecast {
   color: rgb(235, 214, 150);
 }
 
-.forecast-days {
-  text-align: center;
-  margin-bottom: 5px;
-}
-
-.weatherImage {
-  color: rgb(215, 215, 215);
-  font-size: 40px;
-}
-
-#min-max-temp {
-  text-align: center;
-  color: rgba(235, 214, 150);
-  font-size: 15px;
-}
-
-.max-temp,
-.forecast-max-unit {
-  font-weight: bolder;
-}
-
-.min-temp,
-.forecast-min-unit {
-  color: rgba(235, 214, 150, 0.7);
+.Forecast canvas {
+  display: block;
+  height: 50px;
 }

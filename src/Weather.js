@@ -3,14 +3,13 @@ import axios from "axios";
 import "./Weather.css";
 import WeatherInfo from "./WeatherInfo";
 import Loader from "react-loader-spinner";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import Forecast from "./Forecast";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
 
   function displayWeather(response) {
-    console.log(response.data);
     setWeatherData({
       ready: true,
       temperature: response.data.main.temp,
@@ -27,6 +26,8 @@ export default function Weather(props) {
       imgUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       icon: response.data.weather[0].icon,
       date: new Date(response.data.dt * 1000),
+      latitude: response.data.coord.lat,
+      longitude: response.data.coord.lon,
     });
   }
 
@@ -93,6 +94,10 @@ export default function Weather(props) {
           </form>
         </div>
         <WeatherInfo data={weatherData} />;
+        <Forecast
+          latitude={weatherData.latitude}
+          longitude={weatherData.longitude}
+        />
       </div>
     );
   } else {

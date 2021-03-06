@@ -1,59 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import ForecastPreview from "./ForecastPreview";
 import "./Forecast.css";
 
-export default function Forecast() {
-  return (
-    <div className="forecast" id="forecast">
-      <div className="days">
-        <div className="row">
-          <div className="col-sm-2">Sun</div>
-          <div className="col-sm-2">Mon</div>
-          <div className="col-sm-2">Tues</div>
-          <div className="col-sm-2">Weds</div>
-          <div className="col-sm-2">Thurs</div>
-          <div className="col-sm-2">Fri</div>
-        </div>
-      </div>
+export default function Forecast(props) {
+  const [loaded, setLoaded] = useState(false);
+  const [forecast, setForecast] = useState(null);
 
-      <div className="weatherImage">
-        <div className="row">
-          <div className="col-sm-2">
-            {" "}
-            <i className="fas fa-umbrella"></i>
-          </div>
-          <div className="col-sm-2">
-            {" "}
-            <i className="fas fa-sun"></i>
-          </div>
-          <div className="col-sm-2">
-            {" "}
-            <i className="fas fa-cloud-sun-rain"></i>
-          </div>
-          <div className="col-sm-2">
-            {" "}
-            <i className="far fa-sun"></i>
-          </div>
-          <div className="col-sm-2">
-            {" "}
-            <i className="fas fa-snowflake"></i>
-          </div>
-          <div className="col-sm-2">
-            {" "}
-            <i className="fas fa-umbrella"></i>
-          </div>
-        </div>
-      </div>
+  function handleForecastResponse(response) {
+    setForecast(response.data);
+    setLoaded(true);
+    console.log(response.data);
+  }
 
-      <div className="highLow">
-        <div className="row">
-          <div className="col-sm-2">15°|3°</div>
-          <div className="col-sm-2">17°|4°</div>
-          <div className="col-sm-2">16°|5°</div>
-          <div className="col-sm-2">15°|6°</div>
-          <div className="col-sm-2">6°|0°</div>
-          <div className="col-sm-2">12°|5°</div>
-        </div>
+  if (loaded) {
+    return (
+      <div className="Forecast row">
+        <ForecastPreview data={forecast.daily[0]} />
+        <ForecastPreview data={forecast.daily[1]} />
+        <ForecastPreview data={forecast.daily[2]} />
+        <ForecastPreview data={forecast.daily[3]} />
+        <ForecastPreview data={forecast.daily[4]} />
+        <ForecastPreview data={forecast.daily[5]} />
       </div>
-    </div>
-  );
+    );
+  } else {
+    let apiKey = "fde153f3844b17e39f35c5a4dda52b52";
+    let units = "metric";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.latitude}&lon=${props.longitude}&exclude=current,minutely,hourly,alerts&appid=${apiKey}&units=${units}`;
+    axios.get(apiUrl).then(handleForecastResponse);
+
+    return null;
+  }
 }

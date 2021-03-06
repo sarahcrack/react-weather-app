@@ -9,7 +9,7 @@
 }
 
 .Weather canvas {
-  height: 70px;
+  height: 80px;
   margin-bottom: 10px;
 }
 
@@ -92,10 +92,8 @@ h4 {
 }
 
 #units-celsius,
-#units-fahrenheit,
-#units-line {
+#units-fahrenheit {
   position: relative;
-  top: -40px;
   font-size: 25px;
 }
 

@@ -14,7 +14,6 @@ export default function App() {
           <title>Wicked Weather App</title>
 
           <Weather defaultCity="London" defaultCountry="GB" />
-          <Forecast />
         </div>
         <Footer />
       </div>
