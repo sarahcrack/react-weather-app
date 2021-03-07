@@ -13,15 +13,19 @@ export default function Forecast(props) {
     console.log(response.data);
   }
 
-  if (loaded) {
+  if (
+    loaded &&
+    props.latitude === forecast.lat &&
+    props.longitude === forecast.lon
+  ) {
     return (
       <div className="Forecast row">
-        <ForecastPreview data={forecast.daily[0]} />
         <ForecastPreview data={forecast.daily[1]} />
         <ForecastPreview data={forecast.daily[2]} />
         <ForecastPreview data={forecast.daily[3]} />
         <ForecastPreview data={forecast.daily[4]} />
         <ForecastPreview data={forecast.daily[5]} />
+        <ForecastPreview data={forecast.daily[6]} />
       </div>
     );
   } else {

@@ -52,7 +52,7 @@ export default function Weather(props) {
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric&lang=en`;
-    axios.get(apiUrl).then(handleResponse);
+    axios.get(apiUrl).then(displayWeather);
   }
 
   function handleLocation(event) {
@@ -89,16 +89,16 @@ export default function Weather(props) {
                   type="submit"
                   className="btn btn-success shadow w-100"
                   id="goBtn"
-                  onClick={handleLocation}
                 >
                   Go!
                 </button>
               </div>
               <div className="col-2">
                 <button
-                  type="submit"
+                  type="button"
                   className="btn btn-info shadow"
                   id="currentLocationBtn"
+                  onClick={handleLocation}
                 >
                   {" "}
                   <i className="fas fa-map-marker-alt"></i>
