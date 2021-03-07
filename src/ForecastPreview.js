@@ -1,5 +1,6 @@
 import React from "react";
 import WeatherIcon from "./WeatherIcon";
+import "./ForecastPreview.css";
 
 export default function ForecastPreview(props) {
   function days() {
@@ -11,13 +12,28 @@ export default function ForecastPreview(props) {
     return `${day}`;
   }
 
+  function MaxTemp() {
+    let maxTemp = Math.round(props.data.temp.max);
+    return `${maxTemp}`;
+  }
+
+  function MinTemp() {
+    let minTemp = Math.round(props.data.temp.min);
+    return `${minTemp}`;
+  }
+
+  function ForecatDescription() {
+    let forecatDescription = props.data.weather[0].main;
+    return `${forecatDescription}`;
+  }
+
   return (
     <div className="ForecastPreview col-sm-2">
-      {days()}
+      <span className="forecastDays">{days()}</span>
       <WeatherIcon code={props.data.weather[0].icon} />
-      {Math.round(props.data.temp.max)} | {Math.round(props.data.temp.min)}{" "}
-      <br />
-      {props.data.weather[0].main}
+      <span className="maxTemp">{MaxTemp()}</span> |{" "}
+      <span className="minTemp">{MinTemp()}</span> <br />
+      {ForecatDescription()}
     </div>
   );
 }

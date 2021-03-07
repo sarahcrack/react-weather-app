@@ -18,8 +18,8 @@ export default function Weather(props) {
       description: response.data.weather[0].description,
       city: response.data.name,
       country: response.data.sys.country,
-      sunrise: "07:15",
-      sunset: "17:00",
+      sunriseTimestamp: response.data.sys.sunrise,
+      sunsetTimestamp: response.data.sys.sunset,
       feelsLike: response.data.main.feels_like,
       pack:
         "Don't forget to pack your jacket, sunglasses and umbrella just in case! 👍🏼",
@@ -28,7 +28,9 @@ export default function Weather(props) {
       date: new Date(response.data.dt * 1000),
       latitude: response.data.coord.lat,
       longitude: response.data.coord.lon,
+      timezone: response.data.timezone,
     });
+    console.log(response.data.sys.sunrise);
   }
 
   function search() {

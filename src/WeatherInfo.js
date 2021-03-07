@@ -2,6 +2,8 @@ import React from "react";
 import FomattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
+import Sunrise from "./Sunrise";
+import Sunset from "./Sunset";
 
 export default function WeatherInfo(props) {
   return (
@@ -27,8 +29,20 @@ export default function WeatherInfo(props) {
         <div className="col-sm-6">
           <ul>
             <li>
-              <span id="sunrise"></span>🌅 {props.data.sunrise}{" "}
-              <span id="sunset">{props.data.sunset}</span>
+              <div className="SunriseSunset">
+                <span className="Sunrise">
+                  <Sunrise
+                    sunrise={props.data.sunriseTimestamp}
+                    timezone={props.data.timezone}
+                  />
+                </span>
+                <span className="Sunset">
+                  <Sunset
+                    sunset={props.data.sunsetTimestamp}
+                    timezone={props.data.timezone}
+                  />
+                </span>
+              </div>
             </li>
             <li className="weather-temperature">
               <WeatherTemperature celsius={props.data.temperature} />
