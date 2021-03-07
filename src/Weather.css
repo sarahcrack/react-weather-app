@@ -87,12 +87,6 @@ h4 {
   font-weight: bold;
 }
 
-#units-celsius,
-#units-fahrenheit {
-  position: relative;
-  font-size: 25px;
-}
-
 .weather-temperature .active {
   color: rgb(235, 214, 150);
   cursor: default;
