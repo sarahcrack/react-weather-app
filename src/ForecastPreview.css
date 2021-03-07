@@ -1,12 +1,12 @@
-.forecastDays {
+.ForecastPreview .forecastDays {
   font-weight: bolder;
   text-decoration: underline;
 }
 
-.maxTemp {
+.ForecastPreview .maxTemp {
   font-weight: bold;
 }
 
-.minTemp {
+.ForecastPreview .minTemp {
   color: rgb(235, 214, 150, 0.8);
 }

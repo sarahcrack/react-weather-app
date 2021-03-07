@@ -1,4 +1,4 @@
-.card-body {
+.Weather .card-body {
   padding: 0;
   font-size: 20px;
   color: rgb(215, 215, 215);
@@ -9,66 +9,50 @@
 }
 
 .Weather canvas {
-  height: 80px;
+  height: 90px;
   margin-bottom: 10px;
 }
 
-.WeatherInfo h1 {
+.Weather h1 {
   font-weight: bolder;
   line-height: 1.5;
-  margin-top: 8px;
+  margin-top: 15px;
   margin-bottom: 0;
   color: rgb(235, 214, 150);
   text-align: left;
 }
 
-h4 {
+.Weather h4 {
   color: rgb(235, 214, 150);
   text-align: left;
 }
 
-.myLocation {
-  font-size: 30px;
-}
-
-#todays-date {
-  margin-bottom: 0;
-}
-
-#current-time {
-  margin-bottom: 20px;
-}
-
-#country {
-  color: rgb(235, 214, 150);
-}
-
-.WeatherInfo ul {
+.Weather ul {
   margin: 0 0 20px 0;
   padding: 0;
   line-height: 1.4;
   color: rgb(235, 214, 150);
 }
 
-.WeatherInfo li {
+.Weather li {
   font-size: 18px;
   text-align: right;
   padding-right: 20px;
   list-style: none;
 }
 
-.weather-description {
+.Weather .weather-description {
   font-size: 26px;
   color: rgb(235, 214, 150);
   font-weight: bold;
   text-align: left;
 }
 
-.weather-description {
+.Weather .weather-description {
   text-transform: capitalize;
 }
 
-.pack {
+.Weather .pack {
   font-size: 16px;
   color: rgb(215, 215, 215);
   text-align: left;
@@ -81,22 +65,22 @@ h4 {
   max-width: 80%;
 }
 
-.temperature {
+.Weather .temperature {
   font-size: 100px;
   text-align: right;
   font-weight: bold;
 }
 
-.weather-temperature .active {
+.Weather .weather-temperature .active {
   color: rgb(235, 214, 150);
   cursor: default;
 }
 
-.weather-temperature .active:hover {
+.Weather .weather-temperature .active:hover {
   text-decoration: none;
 }
 
-.feels-like,
+.Weather .feels-like,
 .wind-speed {
-  line-height: 2;
+  line-height: 2.5;
 }

@@ -22,7 +22,7 @@ export default function WeatherInfo(props) {
             <WeatherIcon code={props.data.icon} />
           </div>
           <p className="weather-description">{props.data.description}</p>
-          <p className="pack" id="what-to-pack">
+          <p className="pack">
             {" "}
             <WhatToPack
               weatherCondition={props.data.weatherCondition}
@@ -54,21 +54,17 @@ export default function WeatherInfo(props) {
             </li>
             <li>
               Feels like:{" "}
-              <span className="feels-like" id="feels-like">
+              <span className="feels-like">
                 {Math.round(props.data.feelsLike)}
               </span>
               °C
             </li>
             <li>
-              Humidity:{" "}
-              <span className="humidity" id="humidity">
-                {props.data.humidity}
-              </span>
-              %
+              Humidity: <span className="humidity">{props.data.humidity}</span>%
             </li>
             <li>
               Wind Speed:{" "}
-              <span className="wind-speed" id="wind-speed">
+              <span className="wind-speed">
                 {Math.round(props.data.windSpeed)}
               </span>{" "}
               mph

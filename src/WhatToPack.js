@@ -5,20 +5,47 @@ export default function (props) {
   let temperatureCondition = props.temperaturatureCondition;
 
   if (weatherCondition === "Clouds") {
-    return "Don't forget to pack your jacket, sunglasses and umbrella just in case! 👍🏼";
+    return (
+      <div>
+        Don't forget to pack your jacket, sunglasses and umbrella just in case!{" "}
+        <i class="fas fa-thumbs-up"></i>
+      </div>
+    );
   } else if (
     weatherCondition === "Rain" ||
     weatherCondition === "Drizzle" ||
     weatherCondition === "Thunderstorm"
   ) {
-    return "Don't forget to pack your umbrella! ☂️";
+    return (
+      <div>
+        Don't forget to pack your umbrella! <i className="fas fa-umbrella"></i>
+      </div>
+    );
   } else if (weatherCondition === "Snow") {
-    return "Don't forget to pack your hat and gloves! ❄️";
+    return (
+      <div>
+        Don't forget to pack your hat and gloves! <i class="fas fa-snowman"></i>
+      </div>
+    );
   } else if (weatherCondition === "Clear" && temperatureCondition >= 15) {
-    return "Don't forget to pack your sunglasses! 😎";
+    return (
+      <div>
+        Don't forget to pack your sunglasses! <i class="fas fa-sun"></i>
+      </div>
+    );
   } else if (weatherCondition === "Clear" && temperatureCondition < 15) {
-    return "Don't forget to pack your coat and hat! 🧥`";
+    return (
+      <div>
+        Don't forget to pack your coat and hat!{" "}
+        <i class="fas fa-user-secret"></i>
+      </div>
+    );
   } else {
-    return "Don't forget to pack your jacket, sunglasses, umbrella, hat and gloves just in case! 👍🏼";
+    return (
+      <div>
+        Don't forget to pack your jacket, sunglasses, umbrella, hat and gloves
+        just in case! <i class="fas fa-thumbs-up"></i>
+      </div>
+    );
   }
 }
