@@ -14,26 +14,26 @@ export default function ForecastPreview(props) {
 
   function MaxTemp() {
     let maxTemp = Math.round(props.data.temp.max);
-    return `${maxTemp}`;
+    return `${maxTemp}°`;
   }
 
   function MinTemp() {
     let minTemp = Math.round(props.data.temp.min);
-    return `${minTemp}`;
+    return `${minTemp}°`;
   }
 
-  function ForecatDescription() {
-    let forecatDescription = props.data.weather[0].main;
-    return `${forecatDescription}`;
+  function ForecastDescription() {
+    let forecastDescription = props.data.weather[0].main;
+    return `${forecastDescription}`;
   }
 
   return (
     <div className="ForecastPreview col-sm-2">
       <span className="forecastDays">{days()}</span>
       <WeatherIcon code={props.data.weather[0].icon} />
-      <span className="maxTemp">{MaxTemp()}</span> |{" "}
+      <span className="maxTemp">{MaxTemp()}</span>|
       <span className="minTemp">{MinTemp()}</span> <br />
-      {ForecatDescription()}
+      {ForecastDescription()}
     </div>
   );
 }
