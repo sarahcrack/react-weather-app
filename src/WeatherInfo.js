@@ -4,6 +4,7 @@ import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
 import Sunrise from "./Sunrise";
 import Sunset from "./Sunset";
+import WhatToPack from "./WhatToPack";
 
 export default function WeatherInfo(props) {
   return (
@@ -23,6 +24,10 @@ export default function WeatherInfo(props) {
           <p className="weather-description">{props.data.description}</p>
           <p className="pack" id="what-to-pack">
             {" "}
+            <WhatToPack
+              weatherCondition={props.data.weatherCondition}
+              temperatureCondition={props.data.feelsLike}
+            />
             {props.data.pack}
           </p>
         </div>

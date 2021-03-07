@@ -16,13 +16,12 @@ export default function Weather(props) {
       windSpeed: response.data.wind.speed,
       humidity: response.data.main.humidity,
       description: response.data.weather[0].description,
+      weatherCondition: response.data.weather[0].main,
       city: response.data.name,
       country: response.data.sys.country,
       sunriseTimestamp: response.data.sys.sunrise,
       sunsetTimestamp: response.data.sys.sunset,
       feelsLike: response.data.main.feels_like,
-      pack:
-        "Don't forget to pack your jacket, sunglasses and umbrella just in case! 👍🏼",
       imgUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       icon: response.data.weather[0].icon,
       date: new Date(response.data.dt * 1000),
@@ -30,7 +29,7 @@ export default function Weather(props) {
       longitude: response.data.coord.lon,
       timezone: response.data.timezone,
     });
-    console.log(response.data.sys.sunrise);
+    console.log(response.data);
   }
 
   function search() {
