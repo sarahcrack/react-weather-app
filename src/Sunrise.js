@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function (props) {
+export default function Sunrise (props) {
   let sunriseTimestamp = props.sunrise * 1000 + props.timezone * 1000;
   let sunriseDate = new Date(sunriseTimestamp);
   let sunriseHours = sunriseDate.getUTCHours();

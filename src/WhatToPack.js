@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function (props) {
+export default function WhatToPack(props) {
   let weatherCondition = props.weatherCondition;
   let temperatureCondition = props.temperaturatureCondition;
 

@@ -1,7 +1,6 @@
 import Weather from "./Weather";
 import "./App.css";
 
-import Forecast from "./Forecast";
 import Footer from "./Footer";
 
 import "bootstrap/dist/css/bootstrap.css";
